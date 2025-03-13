@@ -34,7 +34,12 @@ O Tech Challenge desta fase será desenvolver um aplicativo utilizando a platafo
   - XUnit é um framework de testes para .NET que fornece uma maneira simples e eficaz de escrever testes unitários e de integração.
     - Testes são escritos para verificar a lógica de negócios, a integração com o banco de dados e a funcionalidade de armazenamento e recuperação de contatos.
     - Uso de in-memory database do Entity Framework para simular operações sem a necessidade de um banco de dados real, o que permite uma execução rápida dos testes.
-
+   
+- Prometheus
+    - Prometheus é uma ferramenta open-source de monitoramento que coleta e armazena métricas em séries temporais. É amplamente utilizado em ambientes de microserviços e Kubernetes.
+      
+- Grafana
+    - O Grafana é uma plataforma open-source de visualização de dados, usada para criar dashboards interativos e gráficos em tempo real. Ele se integra com diversas fontes de dados, como Prometheus, InfluxDB e Elasticsearch. É amplamente utilizado para monitoramento de sistemas e análise de métricas.
 
 ## Configuração do Banco de dados
 
@@ -55,4 +60,16 @@ Para criação e atualização do migration no banco de dados da aplicação dev
 
 ```
 Update-Database -Project TechChallenge.Infrastructure -StartupProject TechChallenge.Infrastructure -Connection "Host=localhost;Port=5432;Database=TechChallenge;User ID=postgres;Password=102030;Pooling=true;Connection Lifetime=0;"
+```
+
+## Configuração de coleta de métricas
+
+Executar os comandos abaixo para subir as imagens do postgres, prometheus e grafana.
+
+PS.: Na primeira execução da aplicação é necessário configurar a base de dados através do migration descrito na seção anterior
+```
+docker compose build
+```
+```
+docker compose up
 ```

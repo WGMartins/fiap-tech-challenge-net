@@ -2,17 +2,6 @@ networks:
   mynw:
     driver: bridge
 services:
-  # web_api:
-  #  environment:
-  #    - ASPNETCORE_ENVIRONMENT=Development
-  #  container_name: TechApi
-  #  build: .
-  #  ports:
-  #    - 5075:8080
-  #  depends_on:
-  #    - "db"
-  #  networks:
-  #    - mynw
   db:
     image: postgres
     container_name: postgres_db
